@@ -32,7 +32,7 @@ public class Convertidor {
 		
 		// Libra Esterlina
 		divisas.add(new FactorConversion("Libra Esterlina","Won sul-coreano",1559.46d));
-		divisas.add(new FactorConversion("Libra Esterlina","Yen Japoné",163.35));
+		divisas.add(new FactorConversion("Libra Esterlina","Yen Japonés",163.35));
 		
 		// Yen Japones
 		divisas.add(new FactorConversion("Yen Japonés","Won sul-coreano",7.57d));
