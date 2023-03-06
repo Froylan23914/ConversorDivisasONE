@@ -49,7 +49,8 @@ public class FactorConversion {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(divisa1, divisa2);
+		// se hizo así, porque el Object.hash(e1,e2) es diferente a Object.hash(e2,e1) 
+		return Objects.hash(divisa1, divisa2)+Objects.hash(divisa2, divisa1);
 	}
 
 	@Override

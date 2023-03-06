@@ -21,6 +21,8 @@ public class Convertidor {
 		
 		//dolar eu
 		divisas.add(new FactorConversion("Euro","Dolar",17.98d));
+		divisas.add(new FactorConversion("Euro","Dolar",9999.98d));// intentamos duplicar el dato
+		divisas.add(new FactorConversion("Dolar","Euro",9999.98d));// intentamos duplicar el dato alrevez
 		divisas.add(new FactorConversion("Libra Esterlina","Dolar",1.20d));
 		divisas.add(new FactorConversion("Dolar","Yen Japonés",135.84d));
 		divisas.add(new FactorConversion("Dolar","Won sul-coreano",1295.76d));
