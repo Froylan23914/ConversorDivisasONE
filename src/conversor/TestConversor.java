@@ -3,14 +3,15 @@ package conversor;
 public class TestConversor {
 
 	public static void main(String[] args) {
-		/*
+		
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
             	new GUIConversor();
 
             }
         });
-		*/
+		
+		/*
 		Convertidor convertidor = new Convertidor();
 		
 		System.out.println(convertidor);
@@ -33,7 +34,7 @@ public class TestConversor {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		*/
 	}
 
 }
