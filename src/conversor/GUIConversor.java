@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -47,8 +48,16 @@ public class GUIConversor implements ActionListener{
 		// agregamos contenido al frame 
 		agregarElementosalFrame();
 		
+		// ajustamos el frame a su contenido
+		miFrame.pack();	
+		// quitamos la propiedad de redimencionar el frame
+		miFrame.setResizable(false);
+		//obtenemos el tamano de la pantalla y colocamos el frame en el centro
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = ((screenSize.width)/2)-(miFrame.getWidth()/2);
+		int y = ((screenSize.height)/2)-(miFrame.getHeight()/2);
+		miFrame.setLocation(x, y);
 		// desplegamos la ventana
-		miFrame.pack();		
 		miFrame.setVisible(true);
 	}
 	
@@ -63,66 +72,67 @@ public class GUIConversor implements ActionListener{
 		// la orientacion sera vertical
 		panelPadre.setLayout(new BoxLayout(panelPadre, BoxLayout.Y_AXIS));
 
-		//creamos una lista con los elementos que tendra el nuevo panel
+		//creamos una lista  de componentes.
 		List<Component> elementosDelPanel = new ArrayList<Component>();
 		// creamos label, definimos su tamano y agregamos a la lista
 		JLabel auxLabel = new JLabel("Divisa Entrada:");
 		setSizeOf(auxLabel,sizeIzquierda);
 		elementosDelPanel.add(auxLabel);
-		// agregamos un espacio entre los elementos 
-		// elementosDelPanel.add(Box.createRigidArea(new Dimension(100,30)));
-		elementosDelPanel.add(Box.createHorizontalGlue());
-		// creamos el combobox para las divisas de entrada
+		//creamos un combobox con la lista de las divisas y colocamos la opcion de la primera divisa
 		jcbDivisaEntrada = new JComboBox(listaDivisas.toArray());
 		jcbDivisaEntrada.setSelectedIndex(0);
-		//jcbDivisaEntrada.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		//jcbDivisaEntrada.setMaximumSize(sizeDerecha);
+		// le damos un tamano y lo agregamos el combobox a la lista
 		setSizeOf(jcbDivisaEntrada,sizeDerecha);
 		elementosDelPanel.add(jcbDivisaEntrada);
+		// agregamos todos los elementos de la lista a un nuevo panel y este agregarlo al panel padre
 		agregarPanel(panelPadre,elementosDelPanel);
 
 		// hacemos nueva lista para agregar a un nuevo panel
 		elementosDelPanel = new ArrayList<Component>();
+		// creamos label, definimos su tamano y agregamos a la lista
 		auxLabel = new JLabel("Ingrese Cantidad:");
-		//auxLabel.setMaximumSize(sizeIzquierda);
 		setSizeOf(auxLabel,sizeIzquierda);
 		elementosDelPanel.add(auxLabel);
-		// agregamos un espacio entre los elementos 
-		//elementosDelPanel.add(Box.createRigidArea(new Dimension(20,30)));
-		elementosDelPanel.add(Box.createHorizontalGlue());
+		// creamos un textfield, le damos un tamano y lo agregamos a la lista
 		jtfCantidad = new JTextField(10);
-		// jtfCantidad.setMaximumSize(sizeDerecha);
 		setSizeOf(jtfCantidad,sizeDerecha);
-		// jtfCantidad.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		elementosDelPanel.add(jtfCantidad);
+		// agregamos todos los elementos de la lista a un nuevo panel y este agregarlo al panel padre
 		agregarPanel(panelPadre,elementosDelPanel);
 
-
+		// hacemos nueva lista para agregar a un nuevo panel
 		elementosDelPanel = new ArrayList<Component>();
+		// creamos label, definimos su tamano y agregamos a la lista
 		auxLabel = new JLabel("Divisa Salida:");
-		//auxLabel.setMaximumSize(sizeIzquierda);
 		setSizeOf(auxLabel,sizeIzquierda);
 		elementosDelPanel.add(auxLabel);
-		//agregamos espacio entre elementos
-		elementosDelPanel.add(Box.createHorizontalGlue());
+		//creamos un combobox con la lista de las divisas y colocamos la opcion "Peso Mexicano"
 		jcbDivisaSalida = new JComboBox(listaDivisas.toArray());
 		jcbDivisaSalida.setSelectedIndex(listaDivisas.indexOf("Peso Mexicano"));
-		// jcbDivisaSalida.setMaximumSize(sizeDerecha);
+		// le damos un tamano y lo agregamos el combobox a la lista
 		setSizeOf(jcbDivisaSalida,sizeDerecha);
 		elementosDelPanel.add(jcbDivisaSalida);
+		// agregamos todos los elementos de la lista a un nuevo panel y este agregarlo al panel padre
 		agregarPanel(panelPadre,elementosDelPanel);
 
+		// hacemos nueva lista para agregar a un nuevo panel
 		elementosDelPanel = new ArrayList<Component>();
+		// agregamos un nuevo boton, le pasamos el ActionListener cambiamos su tamano y los agregamos a la lista
 		JButton jbIntercambiarDivisas = new JButton("Intercambiar Divisas");
 		jbIntercambiarDivisas.addActionListener(this);
 		setSizeOf(jbIntercambiarDivisas,sizeBotones);
 		elementosDelPanel.add(jbIntercambiarDivisas);
+		// le colocamos un espacio entre los botones
+		elementosDelPanel.add(Box.createRigidArea(new Dimension(20,20)));
+		// agregamos un nuevo boton, le pasamos el ActionListener cambiamos su tamano y los agregamos a la lista
 		JButton jbConvertirDivisa = new JButton("Convertir");
 		jbConvertirDivisa.addActionListener(this);
 		setSizeOf(jbConvertirDivisa,sizeBotones);
 		elementosDelPanel.add(jbConvertirDivisa);
+		// agregamos todos los elementos de la lista a un nuevo panel y este agregarlo al panel padre
 		agregarPanel(panelPadre,elementosDelPanel);
 
+		// por ultimo agregamos el panel padre al frame
 		miFrame.add(panelPadre);
 	}
 
@@ -135,19 +145,29 @@ public class GUIConversor implements ActionListener{
 	private void agregarPanel(JPanel panelPadre, List<Component> componentes){
 		//creamos el panel hijo
 		JPanel panelAux = new JPanel();
-		// la orientacion sera horizontal.
+		// agregamos un tamano de borde
 		int tamBorder = 5;
 		panelAux.setBorder(new EmptyBorder(tamBorder,tamBorder,tamBorder, tamBorder));
+		// la orientacion sera horizontal.
 		panelAux.setLayout(new BoxLayout(panelAux, BoxLayout.X_AXIS));
+		// esta bandera nos servira mas adelante
+		boolean entro1Vez=false;
+		//agregamos cada elemento de la lista al panel creado
 		for(Component componente:componentes){
+			// con esto colocara un espacio entre elementos a partir del primer elemento
+			if(entro1Vez)
+				panelAux.add(Box.createHorizontalGlue());
 			panelAux.add(componente);
+			entro1Vez=true;
 		}
+		// por ultimo agregamos el panel creado al padre
 		panelPadre.add(panelAux);
 	}
 
+	// este metodo se sobreescribio de la interfaz ActionListener
 	@Override
 	public void actionPerformed(ActionEvent evento) {
-		if("Intercambiar Divisas".equals(evento.getActionCommand())){
+		if("Intercambiar Divisas".equals(evento.getActionCommand())){// verificamos si el boton Intercambiar divisas fue ejecutado
 			int aux = jcbDivisaEntrada.getSelectedIndex();
 			jcbDivisaEntrada.setSelectedIndex(jcbDivisaSalida.getSelectedIndex());
 			jcbDivisaSalida.setSelectedIndex(aux);
