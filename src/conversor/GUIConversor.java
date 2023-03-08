@@ -4,6 +4,7 @@ package conversor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -16,7 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-
+import javax.swing.Box;
+import javax.swing.border.EmptyBorder;
 
 public class GUIConversor implements ActionListener{
 	
@@ -51,6 +53,11 @@ public class GUIConversor implements ActionListener{
 	}
 	
 	private void agregarElementosalFrame() {
+		//Definimos el tamano de los elementos de la izquierda y derecha
+		Dimension sizeDerecha = new Dimension(150, 20);
+		Dimension sizeIzquierda = new Dimension(150, 20);
+		Dimension sizeBotones = new Dimension(200, 50);
+		
 		// creamos el panel que contendra a los demas paneles.
 		JPanel panelPadre = new JPanel();
 		// la orientacion sera vertical
@@ -58,43 +65,79 @@ public class GUIConversor implements ActionListener{
 
 		//creamos una lista con los elementos que tendra el nuevo panel
 		List<Component> elementosDelPanel = new ArrayList<Component>();
-		elementosDelPanel.add(new JLabel("Divisa Entrada:"));
+		// creamos label, definimos su tamano y agregamos a la lista
+		JLabel auxLabel = new JLabel("Divisa Entrada:");
+		setSizeOf(auxLabel,sizeIzquierda);
+		elementosDelPanel.add(auxLabel);
+		// agregamos un espacio entre los elementos 
+		// elementosDelPanel.add(Box.createRigidArea(new Dimension(100,30)));
+		elementosDelPanel.add(Box.createHorizontalGlue());
+		// creamos el combobox para las divisas de entrada
 		jcbDivisaEntrada = new JComboBox(listaDivisas.toArray());
 		jcbDivisaEntrada.setSelectedIndex(0);
+		//jcbDivisaEntrada.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		//jcbDivisaEntrada.setMaximumSize(sizeDerecha);
+		setSizeOf(jcbDivisaEntrada,sizeDerecha);
 		elementosDelPanel.add(jcbDivisaEntrada);
 		agregarPanel(panelPadre,elementosDelPanel);
 
 		// hacemos nueva lista para agregar a un nuevo panel
 		elementosDelPanel = new ArrayList<Component>();
-		elementosDelPanel.add(new JLabel("Ingrese Cantidad:"));
-		jtfCantidad = new JTextField(15);
+		auxLabel = new JLabel("Ingrese Cantidad:");
+		//auxLabel.setMaximumSize(sizeIzquierda);
+		setSizeOf(auxLabel,sizeIzquierda);
+		elementosDelPanel.add(auxLabel);
+		// agregamos un espacio entre los elementos 
+		//elementosDelPanel.add(Box.createRigidArea(new Dimension(20,30)));
+		elementosDelPanel.add(Box.createHorizontalGlue());
+		jtfCantidad = new JTextField(10);
+		// jtfCantidad.setMaximumSize(sizeDerecha);
+		setSizeOf(jtfCantidad,sizeDerecha);
+		// jtfCantidad.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		elementosDelPanel.add(jtfCantidad);
 		agregarPanel(panelPadre,elementosDelPanel);
 
 
 		elementosDelPanel = new ArrayList<Component>();
-		elementosDelPanel.add(new JLabel("Divisa Salida:"));
+		auxLabel = new JLabel("Divisa Salida:");
+		//auxLabel.setMaximumSize(sizeIzquierda);
+		setSizeOf(auxLabel,sizeIzquierda);
+		elementosDelPanel.add(auxLabel);
+		//agregamos espacio entre elementos
+		elementosDelPanel.add(Box.createHorizontalGlue());
 		jcbDivisaSalida = new JComboBox(listaDivisas.toArray());
 		jcbDivisaSalida.setSelectedIndex(listaDivisas.indexOf("Peso Mexicano"));
+		// jcbDivisaSalida.setMaximumSize(sizeDerecha);
+		setSizeOf(jcbDivisaSalida,sizeDerecha);
 		elementosDelPanel.add(jcbDivisaSalida);
 		agregarPanel(panelPadre,elementosDelPanel);
 
 		elementosDelPanel = new ArrayList<Component>();
 		JButton jbIntercambiarDivisas = new JButton("Intercambiar Divisas");
 		jbIntercambiarDivisas.addActionListener(this);
+		setSizeOf(jbIntercambiarDivisas,sizeBotones);
 		elementosDelPanel.add(jbIntercambiarDivisas);
 		JButton jbConvertirDivisa = new JButton("Convertir");
 		jbConvertirDivisa.addActionListener(this);
+		setSizeOf(jbConvertirDivisa,sizeBotones);
 		elementosDelPanel.add(jbConvertirDivisa);
 		agregarPanel(panelPadre,elementosDelPanel);
 
 		miFrame.add(panelPadre);
 	}
 
+	private void setSizeOf(Component c, Dimension size){
+		c.setMaximumSize(size);
+		c.setPreferredSize(size);
+		c.setMinimumSize(size);
+	}
+
 	private void agregarPanel(JPanel panelPadre, List<Component> componentes){
 		//creamos el panel hijo
 		JPanel panelAux = new JPanel();
 		// la orientacion sera horizontal.
+		int tamBorder = 5;
+		panelAux.setBorder(new EmptyBorder(tamBorder,tamBorder,tamBorder, tamBorder));
 		panelAux.setLayout(new BoxLayout(panelAux, BoxLayout.X_AXIS));
 		for(Component componente:componentes){
 			panelAux.add(componente);
