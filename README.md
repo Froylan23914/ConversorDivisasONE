@@ -75,6 +75,7 @@ _Para ejecutar primero entra en la carpeta bin y ejecuta lo siguiente:_
 cd bin
 java conversor.TestConversor
 ```
+![Imagen del Programa](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/principal.png)
 ## Autor:
 * **Froylan Aguilar Contreras** - *Trabajo Total* - [Froylan23914](https://github.com/Froylan23914)
 ## Fuentes:
