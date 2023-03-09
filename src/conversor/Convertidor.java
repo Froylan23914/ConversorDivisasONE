@@ -3,11 +3,10 @@ package conversor;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
 
 public class Convertidor {
 
-	Set<FactorConversion> divisas;
+	private HashSet<FactorConversion> divisas;
 	
 	public Convertidor() {
 		// Datos recabados desde google el 03 marzo 2023
@@ -21,8 +20,6 @@ public class Convertidor {
 		
 		//dolar eu
 		divisas.add(new FactorConversion("Euro","Dolar",17.98d));
-		divisas.add(new FactorConversion("Euro","Dolar",9999.98d));// intentamos duplicar el dato
-		divisas.add(new FactorConversion("Dolar","Euro",9999.98d));// intentamos duplicar el dato alrevez
 		divisas.add(new FactorConversion("Libra Esterlina","Dolar",1.20d));
 		divisas.add(new FactorConversion("Dolar","Yen Japonés",135.84d));
 		divisas.add(new FactorConversion("Dolar","Won sul-coreano",1295.76d));
@@ -46,10 +43,12 @@ public class Convertidor {
 					return fc.getFactor(divisa1, divisa2);
 			}
 		}
+		// manda una excepcion si al revisar la coleccion completa, no esta dicho conjunto divisas
 		throw new Exception("No se tiene registro de las divisas: "+divisa1+" y "+divisa2);
 	}
 	
 	public ArrayList<String> getArrayListDivisas(){
+		// se opto por un HashSet para evitar elementos repetidos
 		HashSet<String> hs1 = new HashSet<>();
 		for(FactorConversion fc:divisas) {
 			hs1.add(fc.getDivisa1());
