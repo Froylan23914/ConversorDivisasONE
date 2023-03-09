@@ -1,9 +1,9 @@
 # Conversor de Divisas
-_Conversor de Divisas para el Programa ONE (Oracle Next Education) en java._
+Conversor de Divisas para el Programa ONE (Oracle Next Education) en java.
 ## Introducción:
-_Se nos solicitó crear un conversor de divisas utilizando el lenguaje Java._
+Se nos solicitó crear un conversor de divisas utilizando el lenguaje Java.
 ### Requisitos:
-_El convertidor de monedas debe:_
+El convertidor de monedas debe:
 ```
 * Convertir de la moneda de tu país a Dólar.
 * Convertir de la moneda de tu país a Euros.
@@ -11,7 +11,7 @@ _El convertidor de monedas debe:_
 * Convertir de la moneda de tu país a Yen Japonés.
 * Convertir de la moneda de tu país a Won sul-coreano.
 ```
-_Recordando que también debe ser posible convertir inversamente, es decir:_
+Recordando que también debe ser posible convertir inversamente, es decir:
 ```
 * Convertir de Dólar a la moneda de tu país.
 * Convertir de Euros a la moneda de tu país.
@@ -20,12 +20,12 @@ _Recordando que también debe ser posible convertir inversamente, es decir:_
 * Convertir de Won sul-coreano a la moneda de tu país.
 ```
 ### Extras:
-_Como desafío extra te animamos a que dejes fluir tu creatividad, si puedo convertir divisas, ¿tal vez pueda añadir a mi programa otros tipos de conversiones como temperatura por ejemplo?_
+Como desafío extra te animamos a que dejes fluir tu creatividad, si puedo convertir divisas, ¿tal vez pueda añadir a mi programa otros tipos de conversiones como temperatura por ejemplo?
 ## Desarrollo:
-_Las mondeas tienen diferentes valores de cambio con respecto a otras monedas extranjeras(Divisa). Esto se debe a varios factores como lo es la oferta y demanda._
-_Aqui podemos observar que para cada par de **divisas** tenemos un **Factor de Conversión** y que dependiendo del orden de estas **divisas** el factor es inversamente proporcional_
+Las mondeas tienen diferentes valores de cambio con respecto a otras monedas extranjeras(Divisa). Esto se debe a varios factores como lo es la oferta y demanda.
+Aqui podemos observar que para cada par de **divisas** tenemos un **Factor de Conversión** y que dependiendo del orden de estas **divisas** el factor es inversamente proporcional
 ### Modelado de las Clases base:
-_Para este Proyecto se modelara las siguientes Clases con sus atributos y metodos:_
+Para este Proyecto se modelara las siguientes Clases con sus atributos y metodos:
 ```
 FactorConversion
 -divisa1:String 
@@ -47,9 +47,9 @@ Convertidor
 +getArrayListDivisas():ArrayList<String>
 +toString():String
 ```
-_Con estas 2 clases, ya se puede trabajar ya sea en consola o en interfaz gráfica_
+Con estas 2 clases, ya se puede trabajar ya sea en consola o en interfaz gráfica
 ### Modelado de las Clases para manejar un Grafical User Interface(GUI):
-_Se creo la siguiente clase para el manejo del GUI:_
+Se creo la siguiente clase para el manejo del GUI:
 ```
 GUIConversor
 -convertidor:Convertidor
@@ -65,39 +65,38 @@ GUIConversor
 +actionPerformed(evento:ActionEvent):void
 ```
 ## Compilado y ejecución:
-_Para compilar primero ejecuta el siguiente comando estando en la raiz del proyecto_
+Para compilar primero ejecuta el siguiente comando estando en la raiz del proyecto
 ```
 mkdir bin
 javac -d ./bin ./src/conversor/*.java
 ```
-_Se mostrara una estructura de carpetas parecida a esta:_
-```
+Se mostrara una estructura de carpetas parecida a esta:
+
 ![Imagen de la estructura de carpeta](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/estructuraProyecto.png)
-```
-_Posteriormente para ejecutarlo, primero entra en la carpeta bin y ejecuta lo siguiente:_
+
+Posteriormente para ejecutarlo, primero entra en la carpeta bin y ejecuta lo siguiente:
 ```
 cd bin
 java conversor.TestConversor
 ```
-```
 ![Imagen del Programa](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/principal.png)
-```
-_Cuando ejecutes el boton **Intercambiar Divisas** Cambiara el orden de las divisas que están elejidas_
-```
+
+Cuando ejecutes el boton **Intercambiar Divisas** Cambiara el orden de las divisas que están elejidas
+
 ![Imagen boton Intercambiar Divisas](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/botonIntercambiarDivisa.png)
-```
-_A continuación, si oprime el boton **Convertir** mientras esta vacio el *inputText* de cantidad, mostrará lo siguiente:_
-```
+
+A continuación, si oprime el boton **Convertir** mientras esta vacio el *inputText* de cantidad, mostrará lo siguiente:
+
 ![Imagen Warning input vacio](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/warningCampoVacio.png)
-```
-_Ahora, si la cantidad tiene letras, mostrará el siguiente error mostrando la cadena que entro:_
-```
+
+Ahora, si la cantidad tiene letras, mostrará el siguiente error mostrando la cadena que entro:
+
 ![Imagen error en el input](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/errorEntrada.png)
-```
-_Por ultimo, si la cantidad es un valor aceptable(un número), devolvera el cambio de divisa de esa cantidad:_
-```
+
+Por ultimo, si la cantidad es un valor aceptable(un número), devolvera el cambio de divisa de esa cantidad:
+
 ![Imagen Resultado](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/resultado.png)
-```
+
 ## Autor:
 * **Froylan Aguilar Contreras** - *Trabajo Total* - [Froylan23914](https://github.com/Froylan23914)
 ## Fuentes:
