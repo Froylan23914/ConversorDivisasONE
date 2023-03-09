@@ -71,21 +71,33 @@ mkdir bin
 javac -d ./bin ./src/conversor/*.java
 ```
 _Se mostrara una estructura de carpetas parecida a esta:_
+```
 ![Imagen de la estructura de carpeta](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/estructuraProyecto.png)
+```
 _Posteriormente para ejecutarlo, primero entra en la carpeta bin y ejecuta lo siguiente:_
 ```
 cd bin
 java conversor.TestConversor
 ```
+```
 ![Imagen del Programa](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/principal.png)
+```
 _Cuando ejecutes el boton **Intercambiar Divisas** Cambiara el orden de las divisas que están elejidas_
+```
 ![Imagen boton Intercambiar Divisas](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/botonIntercambiarDivisa.png)
+```
 _A continuación, si oprime el boton **Convertir** mientras esta vacio el *inputText* de cantidad, mostrará lo siguiente:_
+```
 ![Imagen Warning input vacio](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/warningCampoVacio.png)
+```
 _Ahora, si la cantidad tiene letras, mostrará el siguiente error mostrando la cadena que entro:_
+```
 ![Imagen error en el input](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/errorEntrada.png)
+```
 _Por ultimo, si la cantidad es un valor aceptable(un número), devolvera el cambio de divisa de esa cantidad:_
+```
 ![Imagen Resultado](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/resultado.png)
+```
 ## Autor:
 * **Froylan Aguilar Contreras** - *Trabajo Total* - [Froylan23914](https://github.com/Froylan23914)
 ## Fuentes:
