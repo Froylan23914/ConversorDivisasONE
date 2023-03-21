@@ -81,7 +81,7 @@ java conversor.TestConversor
 ```
 ![Imagen del Programa](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/principal.png)
 
-Cuando ejecutes el boton **Intercambiar Divisas** Cambiara el orden de las divisas que están elejidas
+Cuando ejecutes el botón **Intercambiar Divisas** Cambiara el orden de las divisas que están elejidas
 
 ![Imagen boton Intercambiar Divisas](https://github.com/Froylan23914/ConversorDivisasONE/blob/main/img/botonIntercambiarDivisa.png)
 
